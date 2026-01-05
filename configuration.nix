@@ -6,8 +6,8 @@
 	[ 
 	# include
 	./hardware-configuration.nix
-	    ./borg_petra.nix
-	    ./borg_petra_nas.nix
+	./borg_emily.nix
+	./borg_emily_nas.nix
 
 	];
 
@@ -19,7 +19,7 @@
     boot.kernelPackages = pkgs.linuxPackages_latest;
 
     # host
-    networking.hostName = "petra-laptop"; 
+    networking.hostName = "emily-laptop"; 
 
     # networking
     networking.networkmanager.enable = true;
@@ -53,17 +53,6 @@
 	pulse.enable = true;
     };
 
-    # waydroid
-    virtualisation.waydroid.enable = true;
-
-    # steam
-    programs.steam = {
-	enable = true;
-	remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-	    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-	    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-    };
-
     # flatpak
     services.flatpak.enable = true;
     systemd.services.flatpak-repo = {
@@ -75,9 +64,9 @@
     };
 
     # user account 
-    users.users.petra = {
+    users.users.emily = {
 	isNormalUser = true;
-	description = "petra";
+	description = "emily";
 	extraGroups = [ "networkmanager" "wheel" ];
     };
 
@@ -88,8 +77,6 @@
 	extraGroups = [ "networkmanager" "wheel" ];
     };
 
-
-
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
@@ -97,33 +84,39 @@
     environment.systemPackages = with pkgs; [
 
 	borgbackup
-	    git
-	    firefox
-	    syncthing
-	    neovim
-	    tailscale
-	    alacritty  
-	    libreoffice
-	    htop
-	    bottom
-	    eza
-	    trash-cli
-	    gnome-disk-utility
-	    gnome-multi-writer
-	    retroarch-full
-	    onlyoffice-desktopeditors
-	    luanti
-	    wl-clipboard
-	    wayland-utils
-	    unzip
+	git
+	firefox
+	syncthing
+	neovim
+	tailscale
+	alacritty  
+	libreoffice
+	htop
+	bottom
+	eza
+	trash-cli
+	gnome-disk-utility
+	gnome-multi-writer
+	onlyoffice-desktopeditors
+	wl-clipboard
+	wayland-utils
+	unzip
 
-
-	    ];
+    ];
 
     # for bash scripts 
     services.envfs.enable = true;
 
+    # home directories
+    systemd.tmpfiles.rules = [
+	"d /home/emily/Desktop 755 emily users -"
+	"d /home/emily/Downloads 755 emily users -"
+	"d /home/emily/Documents 755 emily users -"
+	"d /home/emily/bin 755 emily users -"
+    ];
+
+
     # version
-    system.stateVersion = "23.05"; # Did you read the comment?
+    system.stateVersion = "24.05"; # Did you read the comment?
 
 }
