@@ -1,0 +1,4 @@
+
+# rebuild
+sudo nixos-rebuild --upgrade switch
+
