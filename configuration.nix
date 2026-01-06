@@ -101,6 +101,7 @@
 	wl-clipboard
 	wayland-utils
 	unzip
+	ncdu
 
     ];
 
