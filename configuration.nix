@@ -102,6 +102,8 @@
 	wayland-utils
 	unzip
 	ncdu
+	smartmontools
+	zoom-us
 
     ];
 
