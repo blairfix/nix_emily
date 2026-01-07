@@ -104,6 +104,7 @@
 	ncdu
 	smartmontools
 	zoom-us
+	vlc
 
     ];
 
