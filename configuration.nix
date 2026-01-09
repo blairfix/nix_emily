@@ -94,6 +94,7 @@
 	htop
 	bottom
 	eza
+	fzf
 	trash-cli
 	gnome-disk-utility
 	gnome-multi-writer
