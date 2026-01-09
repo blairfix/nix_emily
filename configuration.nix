@@ -8,6 +8,7 @@
 	./hardware-configuration.nix
 	./borg_emily.nix
 	./borg_emily_nas.nix
+	./wine.nix
 
 	];
 
