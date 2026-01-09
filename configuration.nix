@@ -9,7 +9,6 @@
 	./borg_emily.nix
 	./borg_emily_nas.nix
 	./wine.nix
-
 	];
 
     # Bootloader.
@@ -102,6 +101,8 @@
 	onlyoffice-desktopeditors
 	wl-clipboard
 	wayland-utils
+	wget
+	curl
 	unzip
 	ncdu
 	smartmontools
