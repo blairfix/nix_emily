@@ -40,6 +40,15 @@
     # CUPS 
     services.printing.enable = true;
 
+    # brother hl2040 driver
+    services.printing.drivers = with pkgs; [ 
+	    brlaser
+	    pkgs.brgenml1lpr
+	    pkgs.brgenml1cupswrapper
+	];
+
+
+
     # tailscale
     services.tailscale.enable = true;
 
