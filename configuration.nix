@@ -117,6 +117,7 @@
 	smartmontools
 	zoom-us
 	vlc
+	strawberry
 
     ];
 
