@@ -42,12 +42,10 @@
 
     # brother hl2040 driver
     services.printing.drivers = with pkgs; [ 
-	    brlaser
-	    pkgs.brgenml1lpr
-	    pkgs.brgenml1cupswrapper
-	];
-
-
+	brlaser
+	pkgs.brgenml1lpr
+	pkgs.brgenml1cupswrapper
+    ];
 
     # tailscale
     services.tailscale.enable = true;
@@ -86,6 +84,14 @@
 	extraGroups = [ "networkmanager" "wheel" ];
     };
 
+    # user account 
+    users.users.petra = {
+	isNormalUser = true;
+	description = "petra";
+	extraGroups = [ "networkmanager" "wheel" ];
+    };
+
+
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
@@ -93,33 +99,33 @@
     environment.systemPackages = with pkgs; [
 
 	borgbackup
-	git
-	firefox
-	syncthing
-	neovim
-	tailscale
-	alacritty  
-	libreoffice
-	htop
-	bottom
-	eza
-	fzf
-	trash-cli
-	gnome-disk-utility
-	gnome-multi-writer
-	onlyoffice-desktopeditors
-	wl-clipboard
-	wayland-utils
-	wget
-	curl
-	unzip
-	ncdu
-	smartmontools
-	zoom-us
-	vlc
-	strawberry
+	    git
+	    firefox
+	    syncthing
+	    neovim
+	    tailscale
+	    alacritty  
+	    libreoffice
+	    htop
+	    bottom
+	    eza
+	    fzf
+	    trash-cli
+	    gnome-disk-utility
+	    gnome-multi-writer
+	    onlyoffice-desktopeditors
+	    wl-clipboard
+	    wayland-utils
+	    wget
+	    curl
+	    unzip
+	    ncdu
+	    smartmontools
+	    zoom-us
+	    vlc
+	    strawberry
 
-    ];
+	    ];
 
     # for bash scripts 
     services.envfs.enable = true;
@@ -127,9 +133,9 @@
     # home directories
     systemd.tmpfiles.rules = [
 	"d /home/emily/Desktop 755 emily users -"
-	"d /home/emily/Downloads 755 emily users -"
-	"d /home/emily/Documents 755 emily users -"
-	"d /home/emily/bin 755 emily users -"
+	    "d /home/emily/Downloads 755 emily users -"
+	    "d /home/emily/Documents 755 emily users -"
+	    "d /home/emily/bin 755 emily users -"
     ];
 
 
